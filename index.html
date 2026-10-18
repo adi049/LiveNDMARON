@@ -452,6 +452,121 @@ body.intro-lock{overflow:hidden}
   .platforms-grid{grid-template-columns:1fr}
   .insta-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
 }
+
+/* Mobile polish: clearer hero, compact location card, consistent gallery */
+@media (max-width: 600px) {
+  .hero {
+    min-height: 0;
+    align-items: stretch;
+  }
+  .hero-media {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .hero-media picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .hero-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(17,24,20,.30) 0%, rgba(17,24,20,.18) 34%, rgba(17,24,20,.64) 100%),
+      linear-gradient(90deg, rgba(36,59,50,.20) 0%, transparent 90%);
+  }
+  .hero-content {
+    padding: 104px 0 44px;
+  }
+
+  /* Location section: keep the building photo visible and move card below it */
+  .img-frame {
+    aspect-ratio: auto;
+    height: auto;
+    overflow: visible;
+    background: transparent;
+  }
+  .img-frame > picture {
+    display: block;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .img-frame > picture img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .img-frame .float-card {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    margin: -12px 10px 0;
+    padding: 14px;
+    width: auto;
+    max-width: none;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--forest);
+    border: 1px solid var(--line);
+    box-shadow: 0 8px 24px rgba(0,0,0,.10);
+    backdrop-filter: none;
+  }
+  .img-frame .float-card > div {
+    min-width: 0;
+  }
+  .img-frame .float-card > div:nth-child(2) {
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+  }
+  .img-frame .float-card > a {
+    grid-column: 2;
+    justify-self: start;
+    margin-left: 0 !important;
+    white-space: normal !important;
+  }
+
+  /* Gallery: aligned two-column grid with larger, uniform thumbnails */
+  .masonry {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-items: start;
+  }
+  .masonry .shot,
+  .masonry .shot.tall {
+    grid-row: auto;
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .masonry .shot img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .masonry .shot figcaption {
+    left: 8px;
+    bottom: 8px;
+    font-size: .68rem;
+  }
+}
+
 </style>
 </head>
 <body>
